@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="extra.css">
+</head>
+<body>
+    <div>
+    <div class="person-selector">
+        <button class="person-selector-button active-person" id="You-selector">You</button>
+        <button class="person-selector-button" id="Seniors-selector">Seniors</button>
+    </div>
+    <div class="chat-container">
+        <h2 class="chat-header">You are Typing...</h2>
+        <div class="chat-message">
+            <div class="message blue-bg">
+                <div class="message-sender">You</div>
+                <div class="message-text">Hey Seniors, What's up?</div>
+            </div>
+            <div class="message gray-bg">
+                <div class="message-sender">Seniors</div>
+                <div class="message-text">I am fine. How can I help you?</div>
+            </div>
+        </div>
+        <form  class="chat-input-form">
+            <input type="text" class="chat-input" required placeholder="Type here, You...">
+            <button type="submit" class="button send-button">Send</button>
+            <button class="button clear-chat-button">Clear Chat</button>
+        </form>
+        </div>
+    </div>
+    <script>
+          const YouSelectorBtn = document.querySelector('#You-selector')
+          const SeniorsSelectorBtn = document.querySelector('#Seniors-selector')
+          const chatHeader = document.querySelector('.chat-header')
+          const chatMessages = document.querySelector('.chat-message')
+          const chatInputForm = document.querySelector('.chat-input-form')
+          const chatInput = document.querySelector('.chat-input')
+          const clearChatBtn= document.querySelector('.clear-chat-button')
+         
+
+          const createchatMessageElement = (message) => `
+          <div class="message ${message.sender === 'You' ? 'blue-bg' : 'gray-bg'}">
+            <div class="message-sender">${message.sender}</div>
+            <div class="message-text">${message.text}</div>
+            <div class="message-timestamp">${message.timestamp}</div>
+          </div>
+          `
+          let messageSender = 'You'
+       const updateMessageSender = (name)=>{
+          messageSender = name
+          chatHeader.innerText = `${messageSender} are Typing...`
+          chatInput.placeholder = `Type here, ${messageSender}`
+
+          if(name==='You'){
+            YouSelectorBtn.classList.add('active-person')
+            SeniorsSelectorBtn.classList.remove('active-person')
+          }
+          if(name==='Seniors'){
+            YouSelectorBtn.classList.remove('active-person')
+            SeniorsSelectorBtn.classList.add('active-person')
+          }
+          chatInput.focus()
+       }
+       
+       YouSelectorBtn.onclick = () => updateMessageSender('You')
+       SeniorsSelectorBtn.onclick = () => updateMessageSender('Seniors')
+          const sendMessage = (e) =>{
+            e.preventDefault()
+            const timestamp = new Date().toLocaleString('en-US',{ hour:'numeric',minute:'numeric',hour12: true })
+            const message = {
+                sender: messageSender,
+                text:chatInput.value,
+                timestamp,
+            }
+          
+          chatMessages.innerHTML += createchatMessageElement(message)
+          chatInputForm.reset()
+          chatMessages.scrollTop = chatMessages.scrollHeight
+        }
+        chatInputForm.addEventListener('submit',sendMessage)
+                  
+    </script>
+</body>
+</html>
