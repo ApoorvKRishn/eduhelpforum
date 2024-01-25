@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .form{
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #file{
+            display: none;
+        }
+
+        .upload_section label{
+            width: 100%;
+            margin-top: 140px;
+            display: block;
+            height: 50px;
+            border: 2px solid #3d7a35;
+            border-style: dashed;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+            background: #f1f1f1;
+        }
+
+        .upload_section label:hover{
+            cursor: pointer;
+        }
+
+        .progress{
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            background-color: pink;
+            color: blue;
+            font-size: 80%;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #upload{
+            width: 30%;
+            margin-top: 20px;
+            height: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="upload_section">
+            <input type="file" id="file">
+            <label for="file">Choose File</label>
+            <span class="progress">20%</span>
+            <button id="upload">Upload</button>
+        </div>
+    </div>
+
+    <script src="material.js"></script>
+</body>
+</html>

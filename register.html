@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="signup1.css">
+    <title>EduHelp Forum</title>
+    <style>
+      .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .center{
+        text-align: center;
+      }
+      .float-left{
+        float:right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="flex"> 
+      <form id="MainForm" class="flext-item w-25 m-4">
+        <h1 class="mb-3 center">Register</h1>
+        <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="EmailInp" placeholder="name@example.com">
+        <label for="EmailInp">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="PasswdInp" placeholder="Password">
+        <label for="PasswdInp">Password</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Fname" placeholder="name@example.com">
+        <label for="Fname">First Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Lname" placeholder="name@example.com">
+        <label for="Lname">Last Name</label>
+      </div>
+      <div class="float-left">
+        <button type="submit" class="btn btn-primary" style="float: auto;">Create New User</button>
+        <a href="login.html"><button type="button" class="btn btn-primary" style="float: auto;">Login</button></a>
+      </div>
+      
+    </form>
+  </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore,doc,setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
+        import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+       
+        const firebaseConfig = {
+          apiKey: "AIzaSyCHlQvX5-kPLmeboGFW24AehS739j5teic",
+          authDomain: "eduhelp-forum-21f27.firebaseapp.com",
+          projectId: "eduhelp-forum-21f27",
+          storageBucket: "eduhelp-forum-21f27.appspot.com",
+          messagingSenderId: "265722204673",
+          appId: "1:265722204673:web:d60515c8d10f0c053ce600",
+          measurementId: "G-EWHM693CRM"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db=getFirestore();
+        // const db=getDatabase();
+        const auth=getAuth(app);
+
+        let email=document.getElementById("EmailInp");
+        let password=document.getElementById("PasswdInp");
+        let fname=document.getElementById("Fname");
+        let lname=document.getElementById("Lname");
+        let form=document.getElementById("MainForm");
+
+        let registerUser= evt =>{
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth,email.value,password.value)
+            .then(async (credential)=>{
+                let ref=doc(db,"UserAuthList",credential.user.uid);
+                console.log(ref);
+                await setDoc(ref,{
+                  firstname: fname.value,
+                  lastname: lname.value
+                })
+                alert("New ID Registered");
+                window.location.href="login.html";
+                
+            }).catch(error=>{
+                alert(error.message);
+            })
+        } 
+        form.addEventListener("submit",registerUser);
+      </script>
+  </body>
+</html>

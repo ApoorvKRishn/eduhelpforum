@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Home</title>
+    <style>
+      .center{
+        text-align: center;
+      }
+      .nav-bg{
+                  background-color: #2a606d;
+
+        z-index: 1;
+      }
+
+      .black-text{
+        text-decoration-color: black;
+      }
+      .round{
+        border-radius: 50%;
+        height: 50px;
+        margin-left: 10px;
+      }
+      #user-name{
+        text-decoration-color: black;
+        align-items: center;
+        height: 100%;
+        margin-left: 15px;
+        font-weight: bolder;
+        padding-top: 15px;
+      }
+       
+      footer{
+      margin-top: 15px;
+      }
+      .foot-panel1{
+          background-color: #48555a;
+          height: 49px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-size: 0.85rem;
+      }
+      
+      .foot-panel2{
+          background-color: #2a606d;
+          color: white;
+          display: flex;
+          justify-content: space-evenly;
+      }
+      
+      .foot-panel2 a{
+          color: #dddddd;
+          font-size: 0.85rem
+      }
+      
+      ul{
+          margin-top: 25px;
+      }
+      
+
+      .foot-panel3{
+          background-color: #0F1111;
+          height: 60px;
+          color: white;
+          padding: 25px;
+      }
+      
+      .pages, .copyright{
+          font-size: 0.8rem;
+          display: flex;
+          justify-content: center;
+      }
+      body{
+          background-image: url(https://i.ibb.co/HxhYZMX/Add-Text-01-07-04-59-00.jpg);
+
+  background-size: cover;
+  overflow-x: hidden;
+      }
+      .hstl{
+     display: flex;
+     width: 1500px;
+     height: 400px;
+     margin: 0;
+     position: relative;
+     top: 50px;
+     left: 30PX;
+ }
+.b1{
+  height: 220px;
+  width: 200px;
+    display: inline-block;
+    margin-right: 25px;
+    transition: 0.5s;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 9px;
+    background-color: rgba(30, 144, 255, 0.4);
+}
+.b2{
+  height: 220px;
+  width: 200px;
+    position: relative;
+    display: inline-block;
+    margin-right: 25px;
+    transition: 0.5s;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 9px;
+        background-color: rgba(30, 144, 255, 0.4);
+
+   
+}
+.b3{
+  height: 220px;
+  width: 200px;
+    position: relative;
+    display: inline-block;
+    margin-right: 25px;
+    transition: 0.5s;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 9px;
+        background-color: rgba(30, 144, 255, 0.4);
+
+}
+.b4{
+  height: 220px;
+  width: 200px;
+    position: relative;
+    display: inline-block;
+    transition: 0.5s;
+    border-radius: 15px;
+    margin-right: 25PX;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 9px;
+        background-color: rgba(30, 144, 255, 0.4);
+
+}
+
+
+
+.b1:hover{
+  transform: scale(1.1);
+  z-index: 1.1;
+    box-shadow: rgba(0, 0, 255, 0.6) 0px 7px 6px;
+}
+.b2:hover{
+  transform: scale(1.1);
+  z-index: 1.1;
+    box-shadow: rgba(0, 0, 255, 0.6) 0px 7px 6px;
+
+}
+.b3:hover{
+  transform: scale(1.1);
+  z-index: 1.1;
+    box-shadow: rgba(0, 0, 255, 0.6) 0px 7px 6px;
+
+}
+.b4:hover{
+  transform: scale(1.1);
+  z-index: 1.1;
+    box-shadow: rgba(0, 0, 255, 0.6) 0px 7px 6px;
+
+}
+.b5:hover{
+  transform: scale(1.1);
+  z-index: 1.1;
+    box-shadow: rgba(0, 0, 255, 0.6) 0px 7px 6px;
+
+}
+.im{
+  height: 150px;
+  width: 150px;
+}
+.ic1{
+  padding-top: 25px;
+  padding-left: 27px;
+  transition: 1S;
+  animation: img;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+.ic2{
+  padding-top: 25px;
+  padding-left: 27px;
+}
+.ic3{
+  padding-top: 25px;
+  padding-left: 27px;
+}
+.ic4{
+  padding-top: 25px;
+  padding-left: 27px;
+}
+.ic5{
+  padding-top: 25px;
+  padding-left:27px;
+}
+.ic6{
+  padding-top: 25px;
+  padding-left: 27px;
+}
+.co21{
+  padding-top: 8px;
+  text-align: center;
+  font-weight: 850;
+  font-family: sans-serif;
+  color:white ;
+}
+.h{
+  padding-top: 30px;
+  padding-left: 30px;
+  font-size: 30pt;
+  color: rgb(255, 60, 34);
+font-weight: 700;
+font-family: sans-serif;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1 class="center">EduHelp Forum</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">EduHelp</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Courses
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="materials.html">1st Year</a></li>
+                  <li><a class="dropdown-item" href="materials.html">2nd Year</a></li>
+                  <li><a class="dropdown-item" href="materials.html">3rd Year</a></li>
+                  <li><a class="dropdown-item" href="materials.html">4th year</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">What else you require?</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <button class="btn btn-outline-success" type="submit" id="signOutBut">Sign Out</button>
+              <p id="user-name"></p>
+            </form>
+            
+            <img class="round" src="data:image/png;base64,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"
+            />
+          </div>
+        </div>
+      </nav>
+      <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">Features</h2>
+    
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Materials Section</h3>
+              <p>All your study materials could be accessed and uploaded here.</p>
+              <a href="materials.html">Upload Material</a>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Doubts Section</h3>
+              <p>All the doubts get resolved within 24 hours.</p>
+              <a href="dbt.html">Ask Doubt</a>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="container px-4 py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">All Courses</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+              <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+            </div>
+          <div class="ia">
+  <div class="hstl">
+<a href="first.html"><div class="b1">
+<div class="ic1"><img src="https://i.ibb.co/8XJ7vgZ/IMG-20240108-103756.jpg" class="im"></div>
+<div class="det">
+<div class="co21"> FIRST YEAR</div>
+</div>
+</div>
+</a>
+<a href="sec.html"><div class="b2" >
+<div class="ic2"><img src="https://i.ibb.co/8XJ7vgZ/IMG-20240108-103756.jpg" class="im"></div>
+<div class="det">
+<div class="co21"> SECOND YEAR</div>
+</div>
+</div>
+</a>
+<a href="thd.html"><div class="b3">
+<div class="ic3"><img src="https://i.ibb.co/8XJ7vgZ/IMG-20240108-103756.jpg" class="im"></div>
+<div class="det">
+<div class="co21"> THIRD YEAR </div>
+</div>
+</div>
+</a>
+<a href="for.html"><div class="b4">
+<div class="ic4"><img src="https://i.ibb.co/8XJ7vgZ/IMG-20240108-103756.jpg" class="im"></div>
+<div class="det">
+<div class="co21"> FOURTH YEAR</div>
+</div>
+</div>  
+</a>
+
+</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="foot-panel1">
+            Get to Know Us
+        </div>
+
+        <div class="foot-panel2">
+            <ul type="none">
+                <li><p>Company</p></li><br>
+                <li><a href="#" style="text-decoration: none; ">About Us</a></li><br>
+                <li><a href="#" style="text-decoration: none; ">Contact Us</a></li><br>
+                <li><a href="#" style="text-decoration: none; ">Careers</a></li><br>
+                <li><a href="#" style="text-decoration: none; ">Updates</a></li><br>
+                <li><a href="#" style="text-decoration: none; ">Blogs</a></li><br>
+            </ul>
+
+            <ul type="none">
+                <li><p>Popular Exams</p></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">1st Year</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">2nd Year</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">3rd Year</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">4th Year</a></li><br>
+            </ul>
+
+            <ul type="none">
+                <li><p>Our Features</p></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">Materials Section</a></li><br>
+                <li><a href="dbt.html" style="text-decoration: none; ">Doubts Section</a></li><br>
+             </ul>
+
+            <ul type="none">
+                <li><p>Study Materials</p></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">Explore 1st Year Materials</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">Explore 2nd Year Materials</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">Explore 3rd Year Materials</a></li><br>
+                <li><a href="materials.html" style="text-decoration: none; ">Explore 4th Year Materials</a></li><br>
+            </ul>
+        </div>
+
+    
+        <div class="foot-panel3">
+            <div class="pages">
+                <a>Conditions of Use___  </a>
+                <a>Privacy Notice___  </a>
+                <a>Your Ads Privacy Choices</a>
+            </div>
+            <div class="copyright">
+                © 1996-2023, EduHelp Forum, Inc. or its affiliates
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        let userCred=JSON.parse(sessionStorage.getItem("user-creds"));
+        let userInfo=JSON.parse(sessionStorage.getItem("user-info"));
+        let signOut=document.getElementById("signOutBut");
+        // let message=document.getElementById("msg");
+        let user=document.getElementById("user-name");
+        // let greet=document.getElementById("greet");
+        let SignOut=()=>{
+          sessionStorage.removeItem("user-creds");
+          sessionStorage.removeItem("user-info");
+          window.location.href="login.html";
+        }
+        let CheckCred=()=>{
+          if(!sessionStorage.getItem("user-creds")){
+            window.location.href="login.html";
+          }else{
+            // message.innerText=`user with email ${userCred.user.email} logged in`;
+            // greet.innerText=`Welcome ${userInfo.firstName+" "+userInfo.lastname}`;
+            user.innerText=`Hi,${userInfo.firstName}`;
+          }
+        }
+        window.addEventListener('load',CheckCred);
+        signOut.addEventListener('click',SignOut);
+    </script>
+  </body>
+</html>

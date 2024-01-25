@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="l.css">
+    <title>EduHelp Forum</title>
+    <style>
+      .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .center{
+        text-align: center;
+      }
+      .float-left{
+        float:right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <form id="MainForm" class="w-25 m-4">
+        <h1 class="mb-3 center">Login</h1>
+        <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="EmailInp" placeholder="name@example.com">
+        <label for="EmailInp">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="PasswdInp" placeholder="Password">
+        <label for="PasswdInp">Password</label>
+      </div>
+      <div class="float-left">
+        <button type="submit" class="btn btn-primary btn-primary-green" style="float: auto;">Login</button>
+        <a href="register.html"><button type="button" class="btn btn-primary" style="float: auto;">Sign up</button></a>
+      </div>
+      
+    </form>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore,doc,getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getDatabase,ref,set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+       
+        const firebaseConfig = {
+          apiKey: "AIzaSyCHlQvX5-kPLmeboGFW24AehS739j5teic",
+          authDomain: "eduhelp-forum-21f27.firebaseapp.com",
+          projectId: "eduhelp-forum-21f27",
+          storageBucket: "eduhelp-forum-21f27.appspot.com",
+          messagingSenderId: "265722204673",
+          appId: "1:265722204673:web:d60515c8d10f0c053ce600",
+          measurementId: "G-EWHM693CRM"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db=getFirestore();
+        // const db=getDatabase();
+        const auth=getAuth(app);
+
+        let email=document.getElementById("EmailInp");
+        let password=document.getElementById("PasswdInp");
+        let form=document.getElementById("MainForm");
+
+        let registerUser= evt =>{
+            evt.preventDefault();
+            
+            signInWithEmailAndPassword(auth,email.value,password.value)
+            .then(async (credential)=>{
+                let ref=doc(db,"UserAuthList",credential.user.uid);
+                const docSnap=await getDoc(ref);
+
+                if(docSnap.exists()){
+                    console.log(docSnap.data());
+                    sessionStorage.setItem("user-info",JSON.stringify({
+                        firstName: docSnap.data().firstname,
+                        lastname: docSnap.data().lastname
+                    }))
+                    // console.log(sessionStorage)
+                    sessionStorage.setItem("user-creds",JSON.stringify(credential));
+                    window.location.href="home.html";
+                }
+                console.log(credential);
+            }).catch(error=>{
+                alert(error.message);
+            })
+        } 
+        form.addEventListener("submit",registerUser);
+      </script>
+  </body>
+</html>
